@@ -1,0 +1,1 @@
+Insert the code of "opening_hours_snippet" where you want to display opening hours

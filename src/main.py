@@ -14,6 +14,7 @@ from generate_displayHours_js import generate_displayHours_js
 from generate_sectionDisplayer_js import generate_sectionDisplayer_js
 from generate_openingHoursMid_js import generate_openingOpeningHoursMid_js
 from generate_openingHoursNoon_js import generate_openingOpeningHoursNoon_js
+from generate_hours_snippet import generate_hours_snippet_php
 
 def generate_files():
     directory_path = directory_var.get()
@@ -37,6 +38,7 @@ def generate_files():
         generate_sectionDisplayer_js(directory_path)
         generate_openingOpeningHoursMid_js(directory_path)
         generate_openingOpeningHoursNoon_js(directory_path)
+        generate_hours_snippet_php(directory_path, main_domain)
         
         result_label.config(text="Opening Hours files have been generated.")
 
