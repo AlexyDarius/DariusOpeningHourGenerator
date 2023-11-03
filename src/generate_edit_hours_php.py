@@ -1,4 +1,4 @@
-def generate_edit_hours_php(directory_path, main_domain, full_body_tag):
+def generate_edit_hours_php(directory_path, main_domain, full_body_tag, bg_color, primary_color):
     php_code = f'''<?php
 require $_SERVER['DOCUMENT_ROOT']. '/modules/auth/checker.php';
 include $_SERVER['DOCUMENT_ROOT']. '/includes/head.php'
@@ -18,9 +18,9 @@ include $_SERVER['DOCUMENT_ROOT']. '/includes/navbar.php'
     <section style="margin-top: 32px;margin-bottom: 32px;">
         <div class="container">
             <div class="row">
-                <div class="col-6 col-md-6 d-flex justify-content-center"><button class="btn btn-primary" type="button" style="color: var(--bs-body-bg); background-color: var(--bs-primary); border: none" id="edit-midi-button">Éditer horaires du midi</button>
+                <div class="col-6 col-md-6 d-flex justify-content-center"><button class="btn btn-primary" type="button" style="color: {primary_color}; background-color: {bg_color}; border: none" id="edit-midi-button">Éditer horaires du midi</button>
                 </div>
-                <div class="col-6 col-md-6 d-flex justify-content-center"><button class="btn btn-primary" type="button" style="color: var(--bs-body-bg); background-color: var(--bs-primary); border: none" id="edit-soir-button">Éditer horaires du soir</button>
+                <div class="col-6 col-md-6 d-flex justify-content-center"><button class="btn btn-primary" type="button" style="color: {primary_color}; background-color: {bg_color}; border: none" id="edit-soir-button">Éditer horaires du soir</button>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@ include $_SERVER['DOCUMENT_ROOT']. '/includes/navbar.php'
                                     require $_SERVER['DOCUMENT_ROOT']. '/modules/opening-hours/requires/mid_displayer.php'
                                 ?>
 
-                                <div><button type="submit" class="btn btn-primary d-block w-100">Mettre à jour</button></div>
+                                <div><button style="color: {primary_color}; background-color: {bg_color}; border: none" type="submit" class="btn btn-primary d-block w-100">Mettre à jour</button></div>
                             </form>
                         </div>
                     </div>
@@ -59,7 +59,7 @@ include $_SERVER['DOCUMENT_ROOT']. '/includes/navbar.php'
                                     require $_SERVER['DOCUMENT_ROOT']. '/modules/opening-hours/requires/noon_displayer.php'
                                 ?>
 
-                                <div><button type="submit" class="btn btn-primary d-block w-100">Mettre à jour</button></div>
+                                <div><button style="color: {primary_color}; background-color: {bg_color}; border: none" type="submit" class="btn btn-primary d-block w-100">Mettre à jour</button></div>
                             </form>
                         </div>
                     </div>

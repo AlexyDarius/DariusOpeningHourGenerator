@@ -14,11 +14,13 @@ def generate_files():
     directory_path = directory_var.get()
     main_domain = main_domain_entry.get()
     full_body_tag = full_body_tag_entry.get("1.0", "end-1c")
+    bg_color = color_entry1.get()
+    primary_color = color_entry2.get()
 
-    if all([directory_path]):
+    if all([directory_path, main_domain, full_body_tag, bg_color, primary_color]):
         # Generate tree path
         generate_arbo(directory_path)
-        generate_edit_hours_php(directory_path, main_domain, full_body_tag)
+        generate_edit_hours_php(directory_path, main_domain, full_body_tag, bg_color, primary_color)
         generate_opening_hours_json(directory_path)
         generate_mid_displayer_php(directory_path)
         generate_noon_displayer_php(directory_path)
@@ -39,6 +41,16 @@ def select_directory():
     directory_path = filedialog.askdirectory()
     if directory_path:
         directory_var.set(directory_path)
+
+def open_color_picker1():
+    color = colorchooser.askcolor()[1]
+    color_entry1.delete(0, tk.END)
+    color_entry1.insert(0, color)
+
+def open_color_picker2():
+    color = colorchooser.askcolor()[1]
+    color_entry2.delete(0, tk.END)
+    color_entry2.insert(0, color)
 
 app = tk.Tk()
 app.title("DariusDev Opening Hours Generator")
@@ -62,6 +74,26 @@ full_body_tag_label = tk.Label(app, text="Full Body tag (e.g. <body style=...>) 
 full_body_tag_label.pack()
 full_body_tag_entry = tk.Text(app, width=50, height=5)
 full_body_tag_entry.pack()
+
+# Create an Entry widget for entering color in hex format
+color_entry_label = tk.Label(app, text="Enter bg color of the buttons (#hex format) :")
+color_entry_label.pack()
+color_entry1 = tk.Entry(app)
+color_entry1.pack()
+
+# Create a Button to open the color picker
+color_picker_button = tk.Button(app, text="Or use color picker", command=open_color_picker1)
+color_picker_button.pack()
+
+# Create an Entry widget for entering color in hex format
+color_entry_label = tk.Label(app, text="Enter primary color of the buttons (#hex format) :")
+color_entry_label.pack()
+color_entry2 = tk.Entry(app)
+color_entry2.pack()
+
+# Create a Button to open the color picker
+color_picker_button = tk.Button(app, text="Or use color picker", command=open_color_picker2)
+color_picker_button.pack()
 
 blank_label = tk.Label(app, text="")
 blank_label.pack()
