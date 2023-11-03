@@ -7,6 +7,8 @@ from generate_opening_hours_json import generate_opening_hours_json
 from generate_mid_displayer_php import generate_mid_displayer_php
 from generate_noon_displayer_php import generate_noon_displayer_php
 from generate_opening_displayer_php import generate_opening_displayer_php
+from generate_update_hours_mid_php import generate_update_hour_mid_php
+from generate_update_hours_noon_php import generate_update_hour_noon_php
 
 def generate_files():
     directory_path = directory_var.get()
@@ -21,6 +23,8 @@ def generate_files():
         generate_mid_displayer_php(directory_path)
         generate_noon_displayer_php(directory_path)
         generate_opening_displayer_php(directory_path)
+        generate_update_hour_mid_php(directory_path, main_domain)
+        generate_update_hour_noon_php(directory_path, main_domain)
         
         result_label.config(text="Opening Hours files have been generated.")
 
