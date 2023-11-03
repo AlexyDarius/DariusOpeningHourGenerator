@@ -3,6 +3,7 @@ from tkinter import filedialog
 from tkinter import colorchooser
 from generate_arbo import generate_arbo
 from generate_edit_hours_php import generate_edit_hours_php
+from generate_opening_hours_json import generate_opening_hours_json
 
 def generate_files():
     directory_path = directory_var.get()
@@ -13,6 +14,7 @@ def generate_files():
         # Generate tree path
         generate_arbo(directory_path)
         generate_edit_hours_php(directory_path, main_domain, full_body_tag)
+        generate_opening_hours_json(directory_path)
         
         result_label.config(text="Opening Hours files have been generated.")
 
