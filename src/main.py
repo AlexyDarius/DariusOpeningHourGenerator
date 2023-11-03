@@ -2,13 +2,17 @@ import tkinter as tk
 from tkinter import filedialog
 from tkinter import colorchooser
 from generate_arbo import generate_arbo
+from generate_edit_hours_php import generate_edit_hours_php
 
 def generate_files():
     directory_path = directory_var.get()
+    main_domain = main_domain_entry.get()
+    full_body_tag = full_body_tag_entry.get("1.0", "end-1c")
 
     if all([directory_path]):
         # Generate tree path
         generate_arbo(directory_path)
+        generate_edit_hours_php(directory_path, main_domain, full_body_tag)
         
         result_label.config(text="Opening Hours files have been generated.")
 
@@ -36,6 +40,16 @@ directory_entry.pack()
 
 select_directory_button = tk.Button(app, text="Browse", command=select_directory)
 select_directory_button.pack()
+
+main_domain_label = tk.Label(app, text="Enter the main domain (e.g. dariusdev.fr, without www. !) :")
+main_domain_label.pack()
+main_domain_entry = tk.Entry(app)
+main_domain_entry.pack()
+
+full_body_tag_label = tk.Label(app, text="Full Body tag (e.g. <body style=...>) :")
+full_body_tag_label.pack()
+full_body_tag_entry = tk.Text(app, width=50, height=5)
+full_body_tag_entry.pack()
 
 blank_label = tk.Label(app, text="")
 blank_label.pack()
