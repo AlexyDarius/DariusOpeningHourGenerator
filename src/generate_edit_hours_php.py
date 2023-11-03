@@ -69,7 +69,7 @@ include $_SERVER['DOCUMENT_ROOT']. '/includes/navbar.php'
     </section>
     <section>
         </div>
-            <p style="text-align: center; font-size: 24px"><a href="https://{main_domain}/">Revenir à l'accueil</a></p>
+            <p style="text-align: center; font-size: 24px"><a href="https://www.{main_domain}/">Revenir à l'accueil</a></p>
         </div>
     </section>
 

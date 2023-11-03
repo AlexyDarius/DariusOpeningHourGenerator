@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {{
 <script>
     // Redirect to the desired page after a short delay (e.g., 2 seconds)
     setTimeout(function() {{
-        window.location.href = 'https://{main_domain}';
+        window.location.href = 'https://www.{main_domain}';
     }}, 2000); // 2000 milliseconds (2 seconds)
 </script>
 
