@@ -53,6 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {{
 
 '''
 
-    with open(f"{directory_path}/opening-hours/requires/update_hour_mid.php", "w") as php_file:
+    with open(f"{directory_path}/opening-hours/requires/update_hours_mid.php", "w") as php_file:
         php_file.write(php_code)
         print("update_hour_mid.php generated !")
