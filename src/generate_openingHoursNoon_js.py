@@ -30,9 +30,9 @@ function updateOpeningHoursNoon() {{
     fetch('../requires/update_hours.php', {{
         method: 'POST',
         body: JSON.stringify(requestData),
-        headers: {
+        headers: {{
             'Content-Type': 'application/json'
-        }
+        }}
     }})
     .then(response => response.json())
     .then(data => {{

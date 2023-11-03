@@ -1,4 +1,4 @@
-def generate_sectionDisplayer_js(directory_path, main_domain):
+def generate_sectionDisplayer_js(directory_path):
     js_code = f'''// Get references to the buttons and sections
 const editMidiButton = document.querySelector('#edit-midi-button');
 const editSoirButton = document.querySelector('#edit-soir-button');
