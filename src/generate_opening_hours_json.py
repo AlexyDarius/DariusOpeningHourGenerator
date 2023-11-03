@@ -31,6 +31,6 @@ def generate_opening_hours_json(directory_path):
 }}
 '''
 
-    with open(f"{directory_path}/opening-hours/opening_hours.json", "w") as php_file:
-        php_file.write(json_code)
+    with open(f"{directory_path}/opening-hours/opening_hours.json", "w") as json_file:
+        json_file.write(json_code)
         print("opening-hours.json generated !")

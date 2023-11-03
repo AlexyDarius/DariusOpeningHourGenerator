@@ -9,6 +9,7 @@ from generate_noon_displayer_php import generate_noon_displayer_php
 from generate_opening_displayer_php import generate_opening_displayer_php
 from generate_update_hours_mid_php import generate_update_hour_mid_php
 from generate_update_hours_noon_php import generate_update_hour_noon_php
+from generate_disableDropdown_js import generate_disableDropdown_js
 
 def generate_files():
     directory_path = directory_var.get()
@@ -27,6 +28,7 @@ def generate_files():
         generate_opening_displayer_php(directory_path)
         generate_update_hour_mid_php(directory_path, main_domain)
         generate_update_hour_noon_php(directory_path, main_domain)
+        generate_disableDropdown_js(directory_path)
         
         result_label.config(text="Opening Hours files have been generated.")
 
