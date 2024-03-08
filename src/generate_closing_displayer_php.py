@@ -1,7 +1,7 @@
 def generate_closing_displayer_php(directory_path):
     php_code = f'''<?php
 // Path to the closing.json file
-$ClosingFile = "https://www.dariuspizza.fr/modules/opening-hours/closing.json";
+$ClosingFile = "https://www.{main_domain}/modules/opening-hours/closing.json";
 
 // Read the JSON content from the file
 $jsonContent = file_get_contents($ClosingFile);

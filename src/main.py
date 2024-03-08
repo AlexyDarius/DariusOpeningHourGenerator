@@ -45,7 +45,7 @@ def generate_files():
         generate_hours_snippet_php(directory_path, main_domain)
         generate_closing_json(directory_path)
         generate_updateClosing_js(directory_path)
-        generate_closing_displayer_php(directory_path)
+        generate_closing_displayer_php(directory_path, main_domain)
         generate_update_closing_php(directory_path, main_domain)
         
         result_label.config(text="Opening Hours files have been generated.")
