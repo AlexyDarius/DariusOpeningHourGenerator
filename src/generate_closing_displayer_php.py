@@ -1,4 +1,4 @@
-def generate_closing_displayer_php(directory_path):
+def generate_closing_displayer_php(directory_path, main_domain):
     php_code = f'''<?php
 // Path to the closing.json file
 $ClosingFile = "https://www.{main_domain}/modules/opening-hours/closing.json";
