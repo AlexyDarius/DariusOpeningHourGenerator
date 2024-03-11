@@ -57,7 +57,7 @@ def generate_files():
         generate_update_hour_mid_php(directory_path, main_domain)
         generate_update_hour_noon_php(directory_path, main_domain)
         generate_disableDropdown_js(directory_path)
-        generate_displayHours_js(directory_path, main_domain)
+        generate_displayHours_js(directory_path, main_domain, opening_option)
         generate_sectionDisplayer_js(directory_path)
         generate_openingOpeningHoursMid_js(directory_path)
         generate_openingOpeningHoursNoon_js(directory_path)
@@ -71,8 +71,7 @@ def generate_files():
 
         print("Opening Hours files well generated, don't forget to minify !")
         print("Read readme.txt for implementation.\n")
-        print(f"Selected option: {opening_option}")
-
+        
         app.quit()
     else:
         result_label.config(text="Please provide all required fields.")
