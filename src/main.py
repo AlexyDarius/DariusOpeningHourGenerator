@@ -39,6 +39,13 @@ def get_selected_option():
             return option
     return None  # Return None or a similar value if no checkbox is checked
 
+def toggle_am_pm_fields():
+    # Show the AM/PM fields if MID_NOON or MORNING_AFTERNOON is selected
+    if checkbox_vars[OpeningTime.MID_NOON].get() or checkbox_vars[OpeningTime.MORNING_AFTERNOON].get():
+        am_pm_frame.pack(after=checkbox_frame)
+    else:
+        am_pm_frame.pack_forget()
+
 def generate_files():
     directory_path = directory_var.get()
     main_domain = main_domain_entry.get()
@@ -132,12 +139,20 @@ checkbox_vars = {
     OpeningTime.CONTINUOUS: tk.BooleanVar(),
 }
 
- # Create checkboxes for each option and pack them in the same line
+# Create checkboxes for each option and pack them in the same line
 for option, var in checkbox_vars.items():
     checkbox = tk.Checkbutton(checkbox_frame, text=option, variable=var, 
-                                command=lambda opt=option: on_checkbox_click(opt))
+                              command=lambda opt=option: on_checkbox_click(opt))
     checkbox.pack(side=tk.LEFT)
 
+# After checkboxes, pack the AM/PM frame (initially hidden)
+global am_pm_frame
+am_pm_frame = tk.Frame(app)
+
+# AM/PM input fields
+for _ in range(4):
+    AMPM_entry = tk.Entry(am_pm_frame, width=6)
+    AMPM_entry.pack(side=tk.LEFT, padx=5)
 
 # Create an Entry widget for entering color in hex format
 color_entry_label = tk.Label(app, text="Enter bg color of the buttons (#hex format) :")
