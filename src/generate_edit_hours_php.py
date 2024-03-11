@@ -151,7 +151,7 @@ include $_SERVER['DOCUMENT_ROOT']. '/includes/navbar.php'
                 </div>
             </div>
             <div class="row">
-                <div class="col-6 col-md-6 d-flex justify-content-center"><button class="btn btn-primary" type="button" style="color: {primary_color}; background-color: {bg_color}; border: none" id="edit-soir-button">Éditer horaires </button>
+                <div class="col-12 col-md-12 d-flex justify-content-center"><button class="btn btn-primary" type="button" style="color: {primary_color}; background-color: {bg_color}; border: none" id="edit-soir-button">Éditer horaires </button>
                 </div>
             </div>
         </div>
