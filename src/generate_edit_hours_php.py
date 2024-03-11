@@ -67,7 +67,7 @@ include $_SERVER['DOCUMENT_ROOT']. '/includes/navbar.php'
                 <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
                     <div class="card mb-5">
                         <div class="card-body p-sm-5">
-                            <h2 class="text-center mb-4">Éditez vos {text2} horaires ici</h2>
+                            <h2 class="text-center mb-4">Éditez vos horaires {text2} ici</h2>
                             <form method="post" action="requires/update_hours_noon.php" onsubmit="updateOpeningHoursNoon(); return false;">
 
                                 <?php
@@ -151,22 +151,22 @@ include $_SERVER['DOCUMENT_ROOT']. '/includes/navbar.php'
                 </div>
             </div>
             <div class="row">
-                <div class="col-6 col-md-6 d-flex justify-content-center"><button class="btn btn-primary" type="button" style="color: {primary_color}; background-color: {bg_color}; border: none" id="edit-midi-button">Éditer horaires</button>
+                <div class="col-6 col-md-6 d-flex justify-content-center"><button class="btn btn-primary" type="button" style="color: {primary_color}; background-color: {bg_color}; border: none" id="edit-soir-button">Éditer horaires </button>
                 </div>
             </div>
         </div>
     </section>
-    <section class="position-relative py-4 py-xl-5" id="midi-section">
+    <section class="position-relative py-4 py-xl-5" id="soir-section">
         <div class="container position-relative">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
                     <div class="card mb-5">
                         <div class="card-body p-sm-5">
-                        <h2 class="text-center mb-4">Éditer vos horaires ici</h2>
-                            <form method="post" action="requires/update_hours_mid.php" onsubmit="updateOpeningHoursMid(); return false;">
+                            <h2 class="text-center mb-4">Éditez vos horaires ici</h2>
+                            <form method="post" action="requires/update_hours_noon.php" onsubmit="updateOpeningHoursNoon(); return false;">
 
                                 <?php
-                                    require $_SERVER['DOCUMENT_ROOT']. '/modules/opening-hours/requires/mid_displayer.php'
+                                    require $_SERVER['DOCUMENT_ROOT']. '/modules/opening-hours/requires/noon_displayer.php'
                                 ?>
 
                                 <div><button style="color: {primary_color}; background-color: {bg_color}; border: none" type="submit" class="btn btn-primary d-block w-100">Mettre à jour</button></div>
