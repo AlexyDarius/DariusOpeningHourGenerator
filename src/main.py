@@ -49,7 +49,7 @@ def generate_files():
     if (all([directory_path, main_domain, full_body_tag, bg_color, primary_color]) and opening_option is not None) :
         # Generate tree path
         generate_arbo(directory_path)
-        generate_edit_hours_php(directory_path, main_domain, full_body_tag, bg_color, primary_color)
+        generate_edit_hours_php(directory_path, main_domain, full_body_tag, bg_color, primary_color, opening_option)
         generate_opening_hours_json(directory_path)
         generate_mid_displayer_php(directory_path)
         generate_noon_displayer_php(directory_path)
@@ -71,7 +71,7 @@ def generate_files():
 
         print("Opening Hours files well generated, don't forget to minify !")
         print("Read readme.txt for implementation.\n")
-        
+
         app.quit()
     else:
         result_label.config(text="Please provide all required fields.")

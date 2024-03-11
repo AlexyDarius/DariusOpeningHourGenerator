@@ -1,4 +1,12 @@
-def generate_edit_hours_php(directory_path, main_domain, full_body_tag, bg_color, primary_color):
+def generate_edit_hours_php(directory_path, main_domain, full_body_tag, bg_color, primary_color, opening_option):
+
+    if opening_option == "M/N" :
+        text1 = "du matin"
+        text2 = "de l'après-midi"
+    elif opening_option == "AM/PM" :
+        text1 = "du midi"
+        text2 = "du soir"
+
     php_code = f'''<?php
 require $_SERVER['DOCUMENT_ROOT']. '/modules/auth/checker.php';
 include $_SERVER['DOCUMENT_ROOT']. '/includes/head.php'
@@ -22,9 +30,9 @@ include $_SERVER['DOCUMENT_ROOT']. '/includes/navbar.php'
                 </div>
             </div>
             <div class="row">
-                <div class="col-6 col-md-6 d-flex justify-content-center"><button class="btn btn-primary" type="button" style="color: {primary_color}; background-color: {bg_color}; border: none" id="edit-midi-button">Éditer horaires du midi</button>
+                <div class="col-6 col-md-6 d-flex justify-content-center"><button class="btn btn-primary" type="button" style="color: {primary_color}; background-color: {bg_color}; border: none" id="edit-midi-button">Éditer horaires {text1}</button>
                 </div>
-                <div class="col-6 col-md-6 d-flex justify-content-center"><button class="btn btn-primary" type="button" style="color: {primary_color}; background-color: {bg_color}; border: none" id="edit-soir-button">Éditer horaires du soir</button>
+                <div class="col-6 col-md-6 d-flex justify-content-center"><button class="btn btn-primary" type="button" style="color: {primary_color}; background-color: {bg_color}; border: none" id="edit-soir-button">Éditer horaires {text2}</button>
                 </div>
             </div>
         </div>
@@ -35,7 +43,7 @@ include $_SERVER['DOCUMENT_ROOT']. '/includes/navbar.php'
                 <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
                     <div class="card mb-5">
                         <div class="card-body p-sm-5">
-                        <h2 class="text-center mb-4">Éditer vos horaires du midi ici</h2>
+                        <h2 class="text-center mb-4">Éditer vos horaires {text1} ici</h2>
                             <form method="post" action="requires/update_hours_mid.php" onsubmit="updateOpeningHoursMid(); return false;">
 
                                 <?php
@@ -56,7 +64,7 @@ include $_SERVER['DOCUMENT_ROOT']. '/includes/navbar.php'
                 <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
                     <div class="card mb-5">
                         <div class="card-body p-sm-5">
-                            <h2 class="text-center mb-4">Éditez vos du soir horaires ici</h2>
+                            <h2 class="text-center mb-4">Éditez vos {text2} horaires ici</h2>
                             <form method="post" action="requires/update_hours_noon.php" onsubmit="updateOpeningHoursNoon(); return false;">
 
                                 <?php
