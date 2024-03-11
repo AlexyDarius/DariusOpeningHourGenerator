@@ -1,11 +1,11 @@
 def generate_edit_hours_php(directory_path, main_domain, full_body_tag, bg_color, primary_color, opening_option):
 
     if opening_option == "M/N" :
-        text1 = "du matin"
-        text2 = "de l'après-midi"
+        text1 = "Fermé le midi"
+        text2 = "Fermé le soir"
     elif opening_option == "AM/PM" :
-        text1 = "du midi"
-        text2 = "du soir"
+        text1 = "Fermé le matin"
+        text2 = "Fermé l'après-midi"
 
     php_code = f'''<?php
 require $_SERVER['DOCUMENT_ROOT']. '/modules/auth/checker.php';
