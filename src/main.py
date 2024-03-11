@@ -26,6 +26,7 @@ def generate_files():
     full_body_tag = full_body_tag_entry.get("1.0", "end-1c")
     bg_color = color_entry1.get()
     primary_color = color_entry2.get()
+    mid_
 
     if all([directory_path, main_domain, full_body_tag, bg_color, primary_color]):
         # Generate tree path
