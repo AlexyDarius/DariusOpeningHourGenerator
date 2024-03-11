@@ -1,5 +1,8 @@
 def generate_edit_hours_php(directory_path, main_domain, full_body_tag, bg_color, primary_color, opening_option):
 
+    text1 = ""
+    text2 = ""
+
     if opening_option == "M/N" :
         text1 = "Fermé le midi"
         text2 = "Fermé le soir"
