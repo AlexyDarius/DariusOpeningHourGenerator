@@ -20,15 +20,33 @@ from generate_updateClosing_js import generate_updateClosing_js
 from generate_closing_displayer_php import generate_closing_displayer_php
 from generate_update_closing_php import generate_update_closing_php
 
+class OpeningTime:
+    MID_NOON = "M/N"
+    MORNING_AFTERNOON = "AM/PM"
+    CONTINUOUS = "C"
+
+def on_checkbox_click(selected_option):
+    # Uncheck all other checkboxes
+    for option, var in checkbox_vars.items():
+        if option != selected_option:
+            var.set(False)
+
+def get_selected_option():
+    # Return the option whose checkbox is checked
+    for option, var in checkbox_vars.items():
+        if var.get():
+            return option
+    return None  # Return None or a similar value if no checkbox is checked
+
 def generate_files():
     directory_path = directory_var.get()
     main_domain = main_domain_entry.get()
     full_body_tag = full_body_tag_entry.get("1.0", "end-1c")
     bg_color = color_entry1.get()
     primary_color = color_entry2.get()
-    mid_
+    opening_option = get_selected_option()
 
-    if all([directory_path, main_domain, full_body_tag, bg_color, primary_color]):
+    if (all([directory_path, main_domain, full_body_tag, bg_color, primary_color]) and opening_option is not None) :
         # Generate tree path
         generate_arbo(directory_path)
         generate_edit_hours_php(directory_path, main_domain, full_body_tag, bg_color, primary_color)
@@ -53,6 +71,7 @@ def generate_files():
 
         print("Opening Hours files well generated, don't forget to minify !")
         print("Read readme.txt for implementation.\n")
+        print(f"Selected option: {opening_option}")
 
         app.quit()
     else:
@@ -95,6 +114,29 @@ full_body_tag_label = tk.Label(app, text="Full Body tag (e.g. <body style=...>) 
 full_body_tag_label.pack()
 full_body_tag_entry = tk.Text(app, width=50, height=5)
 full_body_tag_entry.pack()
+
+opening_option_label = tk.Label(app, text="Opening option :")
+opening_option_label.pack()
+
+# Frame to hold the checkboxes
+checkbox_frame = tk.Frame(app)
+checkbox_frame.pack()
+
+# Dictionary to hold the variables associated with each checkbox
+global checkbox_vars
+
+checkbox_vars = {
+    OpeningTime.MID_NOON: tk.BooleanVar(),
+    OpeningTime.MORNING_AFTERNOON: tk.BooleanVar(),
+    OpeningTime.CONTINUOUS: tk.BooleanVar(),
+}
+
+ # Create checkboxes for each option and pack them in the same line
+for option, var in checkbox_vars.items():
+    checkbox = tk.Checkbutton(checkbox_frame, text=option, variable=var, 
+                                command=lambda opt=option: on_checkbox_click(opt))
+    checkbox.pack(side=tk.LEFT)
+
 
 # Create an Entry widget for entering color in hex format
 color_entry_label = tk.Label(app, text="Enter bg color of the buttons (#hex format) :")
