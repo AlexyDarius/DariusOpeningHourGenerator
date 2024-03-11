@@ -19,6 +19,7 @@ from generate_closing_json import generate_closing_json
 from generate_updateClosing_js import generate_updateClosing_js
 from generate_closing_displayer_php import generate_closing_displayer_php
 from generate_update_closing_php import generate_update_closing_php
+from generate_options_json import generate_options_json
 
 class OpeningTime:
     MID_NOON = "M/N"
@@ -66,6 +67,7 @@ def generate_files():
         generate_updateClosing_js(directory_path)
         generate_closing_displayer_php(directory_path, main_domain)
         generate_update_closing_php(directory_path, main_domain)
+        generate_options_json(directory_path)
         
         result_label.config(text="Opening Hours files have been generated.")
 

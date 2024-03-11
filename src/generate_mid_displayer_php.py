@@ -2,8 +2,13 @@ def generate_mid_displayer_php(directory_path):
     php_code = f'''<?php
 $daysM = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 $days_idM = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-$options_openingM = ['11:00', '11:15', '11:30', '11:45', '12:00', '12:15', '12:30', '12:45', '13:00'];
-$options_closingM = ['12:30', '12:45', '13:00', '13:15', '13:30', '13:45', '14:00', '14:15', '14:30'];
+
+// Read JSON file
+$jsonData = file_get_contents("options.json");
+$options = json_decode($jsonData, true);
+
+$options_openingM = $options['options_openingM'];
+$options_closingM = $options['options_closingM'];
 
 for ($i = 0; $i < count($daysM); $i++) {{
     $dayM = $daysM[$i];
