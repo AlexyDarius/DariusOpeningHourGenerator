@@ -4,7 +4,7 @@ $daysM = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche
 $days_idM = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 // Read JSON file
-$jsonData = file_get_contents("options.json");
+$jsonData = file_get_contents("requires/options.json");
 $options = json_decode($jsonData, true);
 
 $options_openingM = $options['options_openingM'];
